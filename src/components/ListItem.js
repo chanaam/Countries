@@ -7,7 +7,7 @@ export default function ListItem(props)
     return <li>
 
        <div>
-           <img src={flags.png} className="flag"/>
+           <img src={flags.png} alt="img" className="flag"/>
        </div>
 
        <div className="flex">
