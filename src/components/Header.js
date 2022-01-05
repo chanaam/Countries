@@ -1,9 +1,9 @@
 import Search from './Search';
 
-export default function Title(){
-    return <header>
-        <h1>Countries</h1>
-        <Search/>
+export default function Header(props){
+    return <header >
+        <h1>Countries<span>({props.countriesNum})</span></h1>
+        <Search />
     </header>
 
 }

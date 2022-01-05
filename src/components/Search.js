@@ -1,6 +1,14 @@
+import { useContext } from "react"
+import { SearchContext } from "./BoxCountries"
 
 
 export default function Search()
 {
-    return <button></button>
+    const v=useContext(SearchContext)
+    return <input 
+            onChange={e=>v(e.target.value)}
+            placeholder='search'
+             type='search'>
+
+    </input>
 }

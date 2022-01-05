@@ -1,11 +1,17 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState,createContext } from "react"
 import axios from "axios"
 import List from "./List"
+import Header from './Header';
 
-export default function ListCountries()
+export const SearchContext=createContext();
+
+export default function BoxCountries()
 {
 
-    const [countriesList,setContriesList]=useState([])
+    const 
+        [countriesList,setContriesList]=useState([]),
+        [searchValue,setSearchValue]=useState('')
+
 
     useEffect(getCountries,[])//only one read
 
@@ -14,12 +20,18 @@ export default function ListCountries()
           .then(result=>setContriesList(result.data))
     }
 
-    
-    console.log(countriesList);
+    if(!countriesList) return 'loading'
+
+    const filteredList= countriesList.filter(c=>c.name.common
+        .toLowerCase()
+        .startsWith(searchValue.toLowerCase()))
 
 
-    return <div className="listCountries">
-        <List list={countriesList.filter(c=>c.name)} refreshView={getCountries}/>
+    return <main >
+        <SearchContext.Provider value={setSearchValue}>
+        <Header countriesNum={filteredList.length}/>
+        </SearchContext.Provider>
+        <List list={filteredList} refreshView={getCountries}/>
         
-    </div>
+    </main>
 }

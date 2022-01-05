@@ -3,19 +3,10 @@ import ListItem from "./ListItem";
 
 export default function List(props){
 
-    const list=props.list
-    return <ul>
-        {list.map(c=>
-        <ListItem 
+    const {list}=props
 
-
-        refreshView={props.refreshView}
-        name={c.name.common}
-        region={c.region}
-
-
-        />)}
-        
-        
+    return <ul className="listCountries">
+        {list.map(c=><ListItem  {...c}/>)}
+    
     </ul>
 }

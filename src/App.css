@@ -9,16 +9,45 @@ body{
   background-color: gainsboro;
 }
 
-li{
-  list-style: none;
+header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
 
+li{
+  display: flex;
+  list-style: none;
+  text-align-last: left;
+  margin-bottom: 20px;
+}
+
+li .flag{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+  border: solid 1px;
+}
+
+
+.flex{
+  display: flex;
+  flex-direction: column
 }
 
 .listCountries{
-  width: 600px;
-  height: 600px;
+  padding-top: 20px;
+  padding-left: 20px;
+  max-width: 600px;
+  height: auto;
   background-color: ghostwhite;
   margin: auto;
-  text-align: center;
   border-radius: 20px;
 }
+
+h1{
+  padding: 20px;
+  text-align: center;
+}
+
